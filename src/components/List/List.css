@@ -1,0 +1,41 @@
+body{
+    overflow-x: hidden;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.limiter {
+    width: 1366px;
+    margin: 0 auto;
+}
+.container-table100 {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 33px 0px;
+}
+.wrap-table100 {
+    width: 1128px;
+    margin: 0 auto;
+}
+.table100.ver1 {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -moz-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -o-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -ms-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+}

@@ -1,0 +1,26 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+/*
+ * Login css File
+*/
+
+.Login #page-wrapper{
+  margin:0 !important;
+}
+
+.Login .container-fluid{   
+  margin: 0 auto !important;
+  width: 665px !important;
+  margin-top: 122px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 10px !important;
+}
