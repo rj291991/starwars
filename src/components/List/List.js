@@ -5,10 +5,15 @@ import Header from '../Header/Header';
 class List extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+       this.state = {
             planets: [],
-            searchPlanets: []
+            term: ''
         };
+    }
+    
+     filterPlanetData = (e) => {
+        let inputVal = e.toLowerCase();
+        this.setState({term: inputVal})
     }
 
     getPlanetList = () => {
@@ -41,14 +46,14 @@ class List extends Component {
     // }
 
     render() {
-        console.log('this.state.planets', this.state.planets);
+        
         const { planets = [] } = this.state;
         return (
             <div className="limiter" >
                 <Header />
                 <div className="container-table100">
                     <input type="text"
-                        onChange={this.filterPlanetData}
+                       onChange={(e) => this.filterPlanetData(e.target.value)}
                     />
                     <div className="wrap-table100">
                         <div className="table100 ver1 m-b-110">
@@ -64,7 +69,7 @@ class List extends Component {
                                             <th className="cell100 column6">Surface Water</th>
                                         </tr>
 
-                                        {planets.map((planet, index) => (
+                                        {planets.filter((it) => it.name.toLowerCase().includes(term)).map((planet, index) => (
                                             <tr className="row100 body" key={index}>
                                                 <td className="cell100 column1">{planet.name}</td>
                                                 <td className="cell100 column2">{planet.climate}</td>
