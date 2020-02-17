@@ -5,21 +5,16 @@ import Header from '../Header/Header';
 class List extends Component {
     constructor(props) {
         super(props);
-       this.state = {
+        this.state = {
             planets: [],
             term: ''
         };
-    }
-    
-     filterPlanetData = (e) => {
-        let inputVal = e.toLowerCase();
-        this.setState({term: inputVal})
     }
 
     getPlanetList = () => {
         const API_URL = 'http://localhost:3000/planet.json';
         fetch(API_URL).then(response => response.json())
-            .then((res) => this.setState({ planets: res.results }))
+                .then((res) => this.setState({planets: res.results}))
     }
 
     componentDidMount() {
@@ -27,62 +22,51 @@ class List extends Component {
     }
 
     filterPlanetData = (e) => {
-        if (e.target.value === '') {
-            console.log('first')
-            this.getPlanetList()
-        } else {
-            
-            var filteredPlanetData = this.state.planets.filter(function (el) {
-                return el.name.toLowerCase() === e.target.value.toLowerCase();
-            });
-            console.log('this.state.filteredPlanetData', filteredPlanetData);
-            this.setState({ searchPlanets: filteredPlanetData })
-        }
-        console.log('e.target.value', e.target.value);
-
+        let inputVal = e.toLowerCase();
+        this.setState({term: inputVal})
     }
-   
-    render() {        
+
+    render() {
         const {planets = [], term} = this.state;
         return (
-            <div className="limiter" >
-                <Header />
-                <div className="container-table100">
-                    <input type="text"
-                       onChange={(e) => this.filterPlanetData(e.target.value)}
-                    />
-                    <div className="wrap-table100">
-                        <div className="table100 ver1 m-b-110">
-                            <div className="table100-body ">
-                                <table>
-                                    <tbody>
-                                        <tr className="row100 head">
-                                            <th className="cell100 column1">Name</th>
-                                            <th className="cell100 column2">Climate</th>
-                                            <th className="cell100 column3">Orbital Period</th>
-                                            <th className="cell100 column4">Terrain</th>
-                                            <th className="cell100 column5">Population</th>
-                                            <th className="cell100 column6">Surface Water</th>
-                                        </tr>
-
-                                        {planets.filter((it) => it.name.toLowerCase().includes(term)).map((planet, index) => (
-                                            <tr className="row100 body" key={index}>
-                                                <td className="cell100 column1">{planet.name}</td>
-                                                <td className="cell100 column2">{planet.climate}</td>
-                                                <td className="cell100 column3">{planet.orbital_period}</td>
-                                                <td className="cell100 column4">{planet.terrain}</td>
-                                                <td className="cell100 column5">{planet.population}</td>
-                                                <td className="cell100 column6">{planet.surface_water}</td>
+                <div className="limiter" >
+                    <Header />
+                    <div className="container-table100">
+                        <input type="text"
+                               onChange={(e) => this.filterPlanetData(e.target.value)}
+                               />
+                        <div className="wrap-table100">
+                            <div className="table100 ver1 m-b-110">
+                                <div className="table100-body ">
+                                    <table>
+                                        <tbody>
+                                            <tr className="row100 head">
+                                                <th className="cell100 column1">Name</th>
+                                                <th className="cell100 column2">Climate</th>
+                                                <th className="cell100 column3">Orbital Period</th>
+                                                <th className="cell100 column4">Terrain</th>
+                                                <th className="cell100 column5">Population</th>
+                                                <th className="cell100 column6">Surface Water</th>
                                             </tr>
-                                        ))}                                      
-                                    </tbody>
-                                </table>
+                
+                                            {planets.filter((it) => it.name.toLowerCase().includes(term)).map((planet, index) => (
+                                        <tr className="row100 body" key={index}>
+                                            <td className="cell100 column1">{planet.name}</td>
+                                            <td className="cell100 column2">{planet.climate}</td>
+                                            <td className="cell100 column3">{planet.orbital_period}</td>
+                                            <td className="cell100 column4">{planet.terrain}</td>
+                                            <td className="cell100 column5">{planet.population}</td>
+                                            <td className="cell100 column6">{planet.surface_water}</td>
+                                        </tr>
+                                                            ))}                                      
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+                );
     }
 }
 
