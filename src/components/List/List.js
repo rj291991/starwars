@@ -41,13 +41,9 @@ class List extends Component {
         console.log('e.target.value', e.target.value);
 
     }
-    // function fetchPlanetData() {
-    //     alert('Hello!');
-    // }
-
-    render() {
-        
-        const { planets = [] } = this.state;
+   
+    render() {        
+        const {planets = [], term} = this.state;
         return (
             <div className="limiter" >
                 <Header />
