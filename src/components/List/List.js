@@ -78,17 +78,7 @@ class List extends Component {
                                                 <td className="cell100 column5">{planet.population}</td>
                                                 <td className="cell100 column6">{planet.surface_water}</td>
                                             </tr>
-                                        ))}
-                                        <tr className="row100 body">
-                                            <td><button >Prev</button></td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td>Next</td>
-                                        </tr>
-
-
+                                        ))}                                      
                                     </tbody>
                                 </table>
                             </div>
